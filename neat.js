@@ -340,7 +340,7 @@
             }
 
             if(direction === 'up'){
-                $next = $active .prev();
+                $next = $active.prev();
                 if($next.length){
                     position = (plugin.settings.horizontal) ? $next.offset().left : $next.offset().top;
                 }
