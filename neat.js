@@ -8,6 +8,7 @@
                 itemClass: '.item',
                 fluidPic: '.sr-pic',
                 fluidPicMargin: 100,
+                picContainerClass: '.photo',
                 fluidPicMinSize: 400,
                 easing: 'swing',
                 easingAfterScroll: 'swing',
@@ -32,6 +33,9 @@
          * Init plugin
          */
         plugin.settings = {};
+
+        // Public methods ========================
+
         plugin.init = function() {
             plugin.settings = $.extend({}, defaults, options);
 
@@ -81,6 +85,7 @@
 
                 loadAllImages(function(){
                     $fluidPics.addClass('loaded');
+                    $fluidPics.parents( plugin.settings.picContainerClass ).addClass('loaded');
                     scaleImage();
                 });
             }
@@ -124,6 +129,7 @@
 
                 loadAllImages(function(){
                     $fluidPics.addClass('loaded');
+                    $fluidPics.parents( plugin.settings.picContainerClass ).addClass('loaded');
                     scaleImage();
                 });
             }
@@ -136,7 +142,11 @@
         };
 
 
-        // Public methods ========================
+      
+
+
+        // Private methods ========================
+        
 
         /**
          * Set events for plugin
@@ -245,9 +255,6 @@
                     
             });
         };
-
-
-        // Private methods ========================
         
         /**
          * Set active item during scroll
